@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Rod Tychy - RODO
+{% endblock %}
+
+{% block body %}
+    <h2>Clients</h2>
+    {% if clients %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Email</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                    <tr>
+                        <td>{{ client.firstName }}</td>
+                        <td>{{ client.lastName }}</td>
+                        <td>{{ client.email }}</td>
+                        <td><a href="/client/{{ client.id }}" class="btn btn-dark">Zobacz</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No Clients</p>
+    {% endif %}
+{% endblock %}
